@@ -14,3 +14,7 @@ Pelanggan: rio | Total Bayar: Rp60000.0
 === STRUK CLEAN DONG LAUNDRY ===
 Pelanggan: rio | Total Bayar: Rp60000.0
 ==================================
+
+=== STRUK CLEAN DONG LAUNDRY ===
+Pelanggan: rio | Total Bayar: Rp60000.0
+==================================

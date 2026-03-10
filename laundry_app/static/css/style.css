@@ -5,10 +5,10 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-
 /* Struktur Dashboard */
 .dashboard-container { display: flex; min-height: 100vh; }
 
-/* === SIDEBAR KIRI === */
+/* sidebar */
 .sidebar { 
     width: 260px; 
-    background-color: #1e293b; /* Warna biru gelap elegan */
+    background-color: #1e293b; 
     color: white; 
     position: fixed; 
     height: 100%; 
@@ -30,7 +30,7 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-
 }
 .sidebar-menu a:hover { background-color: #334155; color: white; border-left: 4px solid #3b82f6; }
 
-/* === KONTEN UTAMA KANAN === */
+/* konten utama */
 .main-content { 
     margin-left: 260px; /* Memberi ruang agar tidak tertutup sidebar */
     width: calc(100% - 260px); 

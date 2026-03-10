@@ -1,20 +1,17 @@
 import os
 from pathlib import Path
 
-# Mendefinisikan lokasi utama folder proyekmu
+# Mendefinisikan lokasi utama folder
 BASE_DIR = Path(__file__).resolve().parent
 
-# Kunci rahasia untuk keamanan (wajib ada di Django)
+# Kunci rahasia untuk keamanan
 SECRET_KEY = 'django-insecure-kunci-rahasia-clean-dong-laundry'
 
-# Mode Debug dinyalakan agar kita bisa melihat error jika ada masalah
+# Mode Debug dinyalakan agar bisa melihat error jika ada masalah
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# ==========================================
-# 1. APLIKASI YANG TERDAFTAR (Syarat 3i & 3j)
-# ==========================================
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -22,12 +19,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'laundry_app', # <--- Aplikasi buatanmu terdaftar di sini
+    'laundry_app',
 ]
-
-# ==========================================
-# 2. MESIN PENGHUBUNG (Middleware)
-# ==========================================
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -38,16 +31,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Mengarahkan rute utama ke file urls.py milikmu
+# Mengarahkan rute utama ke file urls.py
 ROOT_URLCONF = 'urls'
 
-# ==========================================
-# 3. PENGATURAN TAMPILAN (Templates - Syarat 3c)
-# ==========================================
+# PENGATURAN TAMPILAN 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'laundry_app/templates')], # Lokasi file HTML
+        'DIRS': [os.path.join(BASE_DIR, 'laundry_app/templates')], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -60,9 +51,7 @@ TEMPLATES = [
     },
 ]
 
-# ==========================================
-# 4. BASIS DATA (Database SQLite - Syarat 3k)
-# ==========================================
+# Database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -70,13 +59,11 @@ DATABASES = {
     }
 }
 
-# ==========================================
-# 5. FILE STATIS (CSS & JS - Syarat 3b)
-# ==========================================
+# CSS
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'laundry_app/static')
 ]
 
-# Pengaturan default tipe data (Syarat 3d)
+# Pengaturan default tipe data
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

@@ -1,11 +1,9 @@
-// 1. Logika untuk mengganti menu (Menyembunyikan yang tidak diklik)
+// 1. untuk mengganti menu 
 function gantiMenu(idHalaman) {
     // Sembunyikan semua section
     document.getElementById("halaman-dashboard").style.display = "none";
     document.getElementById("halaman-tambah").style.display = "none";
     document.getElementById("halaman-antrean").style.display = "none";
-
-    // Tampilkan hanya section yang dipilih
     document.getElementById(idHalaman).style.display = "block";
 
     // Ubah judul utama sesuai menu
@@ -15,7 +13,7 @@ function gantiMenu(idHalaman) {
     if (idHalaman === 'halaman-antrean') judul.innerText = "Manajemen Antrean";
 }
 
-// 2. Logika bawaan untuk mengubah tipe form (Kiloan / Satuan)
+// 2. untuk mengubah tipe form (Kiloan / Satuan)
 function ubahForm() {
     var jenis = document.getElementById("jenis_layanan").value;
     if (jenis === "kiloan") {
@@ -27,7 +25,7 @@ function ubahForm() {
     }
 }
 
-// 3. Logika untuk menggambar Grafik (Chart.js)
+// 3. untuk menggambar Grafik
 // Kode ini akan otomatis berjalan saat halaman web selesai dimuat
 document.addEventListener('DOMContentLoaded', function() {
     var ctx = document.getElementById('grafikKeuangan').getContext('2d');
@@ -39,14 +37,14 @@ document.addEventListener('DOMContentLoaded', function() {
             datasets: [
                 {
                     label: 'Penjualan (Rp)',
-                    data: [1500000, 2300000, 1800000, 3200000], // Data simulasi
+                    data: [1500000, 2300000, 1800000, 3200000], // Data dummy
                     backgroundColor: 'rgba(16, 185, 129, 0.7)', // Hijau untuk untung
                     borderColor: 'rgba(16, 185, 129, 1)',
                     borderWidth: 1
                 },
                 {
                     label: 'Pengeluaran (Rp)',
-                    data: [800000, 1200000, 900000, 1500000], // Data simulasi (deterjen, listrik, dll)
+                    data: [800000, 1200000, 900000, 1500000], // Data dummy
                     backgroundColor: 'rgba(239, 68, 68, 0.7)', // Merah untuk rugi/keluar
                     borderColor: 'rgba(239, 68, 68, 1)',
                     borderWidth: 1
