@@ -10,7 +10,7 @@ SECRET_KEY = 'django-insecure-kunci-rahasia-clean-dong-laundry'
 # Mode Debug dinyalakan agar kita bisa melihat error jika ada masalah
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # ==========================================
 # 1. APLIKASI YANG TERDAFTAR (Syarat 3i & 3j)
