@@ -1,0 +1,77 @@
+/* Reset Dasar */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; color: #333; }
+
+/* Struktur Dashboard */
+.dashboard-container { display: flex; min-height: 100vh; }
+
+/* === SIDEBAR KIRI === */
+.sidebar { 
+    width: 260px; 
+    background-color: #1e293b; /* Warna biru gelap elegan */
+    color: white; 
+    position: fixed; 
+    height: 100%; 
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+.sidebar-header { padding: 30px 20px; text-align: center; border-bottom: 1px solid #334155; }
+.sidebar-header h2 { font-size: 24px; margin-bottom: 5px; }
+.sidebar-header p { font-size: 14px; color: #94a3b8; }
+
+.sidebar-menu { list-style: none; padding: 20px 0; }
+.sidebar-menu li { margin-bottom: 5px; }
+.sidebar-menu a { 
+    display: block; 
+    padding: 15px 25px; 
+    color: #cbd5e1; 
+    text-decoration: none; 
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.sidebar-menu a:hover { background-color: #334155; color: white; border-left: 4px solid #3b82f6; }
+
+/* === KONTEN UTAMA KANAN === */
+.main-content { 
+    margin-left: 260px; /* Memberi ruang agar tidak tertutup sidebar */
+    width: calc(100% - 260px); 
+    padding: 30px 40px; 
+}
+
+.header-title { margin-bottom: 30px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+.header-title h1 { color: #0f172a; }
+
+/* Desain Kartu (Card) */
+.card { 
+    background: white; 
+    padding: 25px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); 
+    margin-bottom: 30px; 
+}
+.card-title { color: #3b82f6; margin-bottom: 20px; font-size: 20px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px; }
+
+/* Form Elements */
+label { font-weight: 600; margin-top: 15px; display: block; color: #475569; }
+input, select { 
+    width: 100%; padding: 12px; margin-top: 8px; 
+    border: 1px solid #cbd5e1; border-radius: 6px; 
+    font-size: 15px; outline: none; transition: border 0.3s;
+}
+input:focus, select:focus { border-color: #3b82f6; }
+
+/* Tombol */
+.btn-submit { 
+    background-color: #10b981; color: white; border: none; 
+    padding: 14px; font-size: 16px; font-weight: bold; 
+    border-radius: 6px; width: 100%; margin-top: 25px; 
+    cursor: pointer; transition: background 0.3s; 
+}
+.btn-submit:hover { background-color: #059669; }
+
+/* Tabel */
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { border: 1px solid #e2e8f0; padding: 12px 15px; text-align: left; }
+th { background-color: #f8fafc; color: #475569; font-weight: 600; }
+tr:nth-child(even) { background-color: #f8fafc; }
+.harga { font-weight: bold; color: #0f172a; }
+.text-center { text-align: center; color: #94a3b8; font-style: italic; }

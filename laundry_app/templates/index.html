@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Kasir - Clean Dong Laundry</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>🧺 Clean Dong</h2>
+                <p>Sistem Kasir v1.0</p>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" onclick="gantiMenu('halaman-dashboard')">📊 Dashboard Admin</a></li>
+                <li><a href="#" onclick="gantiMenu('halaman-tambah')">➕ Tambah Pesanan</a></li>
+                <li><a href="#" onclick="gantiMenu('halaman-antrean')">📋 Daftar Antrean</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            
+            <div class="header-title">
+                <h1 id="judul-halaman">Dashboard Admin</h1>
+            </div>
+
+            <div id="halaman-dashboard" class="menu-section">
+                <div class="card">
+                    <h2 class="card-title">Grafik Penjualan vs Pengeluaran (Bulan Ini)</h2>
+                    <canvas id="grafikKeuangan" height="100"></canvas> 
+                </div>
+            </div>
+
+            <div id="halaman-tambah" class="menu-section" style="display: none;">
+                <div class="card">
+                    <h2 class="card-title">Form Input Cucian Baru</h2>
+                    <form method="POST">
+                        {% csrf_token %} 
+                        
+                        <label>Nama Pelanggan:</label>
+                        <input type="text" name="nama_pelanggan" required placeholder="Masukkan nama pelanggan...">
+
+                        <label>Jenis Layanan:</label>
+                        <select name="jenis_layanan" id="jenis_layanan" required onchange="ubahForm()">
+                            <option value="kiloan">Cuci Kiloan</option>
+                            <option value="satuan">Cuci Satuan</option>
+                        </select>
+
+                        <div id="form_kiloan">
+                            <label>Berat (Kg):</label>
+                            <input type="number" step="0.1" name="berat" placeholder="Contoh: 2.5">
+                        </div>
+
+                        <div id="form_satuan" style="display: none;">
+                            <label>Nama Barang:</label>
+                            <input type="text" name="nama_barang" placeholder="Misal: Selimut, Jaket">
+                            <label>Jumlah (Pcs):</label>
+                            <input type="number" name="jumlah" placeholder="Contoh: 2">
+                        </div>
+
+                        <button type="submit" class="btn-submit">Simpan Pesanan</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="halaman-antrean" class="menu-section" style="display: none;">
+                <div class="card">
+                    <h2 class="card-title">Data Cucian Berjalan</h2>
+                    
+                    <h3>Kiloan</h3>
+                    <table>
+                        <tr>
+                            <th>Pelanggan</th>
+                            <th>Berat (Kg)</th>
+                            <th>Total Harga</th>
+                        </tr>
+                        {% for item in kiloan %}
+                        <tr>
+                            <td>{{ item.nama_pelanggan }}</td>
+                            <td>{{ item.berat_kg }} kg</td>
+                            <td class="harga">Rp {{ item.hitung_total_harga }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="3" class="text-center">Belum ada pesanan kiloan.</td></tr>
+                        {% endfor %}
+                    </table>
+
+                    <h3 style="margin-top: 20px;">Satuan</h3>
+                    <table>
+                        <tr>
+                            <th>Pelanggan</th>
+                            <th>Barang</th>
+                            <th>Jumlah</th>
+                            <th>Total Harga</th>
+                        </tr>
+                        {% for item in satuan %}
+                        <tr>
+                            <td>{{ item.nama_pelanggan }}</td>
+                            <td>{{ item.nama_barang }}</td>
+                            <td>{{ item.jumlah }} pcs</td>
+                            <td class="harga">Rp {{ item.hitung_total_harga }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="4" class="text-center">Belum ada pesanan satuan.</td></tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>
