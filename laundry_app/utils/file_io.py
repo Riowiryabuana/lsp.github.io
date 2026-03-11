@@ -1,6 +1,6 @@
 import os
 
-# PROSEDUR / FUNGSI (Syarat 3e)
+# FUNGSI 
 def simpan_struk_ke_media(data_pesanan_array):
     """
     Fungsi menyimpan data ke media penyimpan komputer. (Syarat 3g)
@@ -12,7 +12,7 @@ def simpan_struk_ke_media(data_pesanan_array):
     with open(filepath, 'a') as file:
         file.write("\n=== STRUK CLEAN DONG LAUNDRY ===\n")
         
-        # PENGULANGAN for (Syarat 3d)
+        # PENGULANGAN for
         for pesanan in data_pesanan_array:
             # Memanggil fungsi polimorfisme untuk mencetak total
             file.write(f"Pelanggan: {pesanan.nama_pelanggan} | Total Bayar: Rp{pesanan.hitung_total_harga()}\n")
