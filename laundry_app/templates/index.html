@@ -47,6 +47,18 @@
                         <label>Nama Pelanggan:</label>
                         <input type="text" name="nama_pelanggan" required placeholder="Masukkan nama pelanggan...">
 
+                        <label>Alamat:</label>
+                        <input type="text" name="alamat" required placeholder="Masukkan alamat lengkap...">
+
+                        <label>Nomor HP:</label>
+                        <input type="text" name="no_hp" required placeholder="Contoh: 08123456789">
+
+                        <label>Status Pembayaran Awal:</label>
+                        <select name="status_pembayaran" required>
+                            <option value="Belum Lunas">Belum Lunas</option>
+                            <option value="Lunas">Lunas</option>
+                        </select>
+
                         <label>Jenis Layanan:</label>
                         <select name="jenis_layanan" id="jenis_layanan" required onchange="ubahForm()">
                             <option value="kiloan">Cuci Kiloan</option>
@@ -80,12 +92,28 @@
                             <th>Pelanggan</th>
                             <th>Berat (Kg)</th>
                             <th>Total Harga</th>
+                            <th>Status Cucian</th>
+                            <th>Status Pembayaran</th>
                         </tr>
                         {% for item in kiloan %}
                         <tr>
                             <td>{{ item.nama_pelanggan }}</td>
                             <td>{{ item.berat_kg }} kg</td>
                             <td class="harga">Rp {{ item.hitung_total_harga }}</td>
+                            <td>
+                                <strong style="color: {% if item.status_cucian == 'Selesai' %}green{% else %}orange{% endif %};">{{ item.status_cucian }}</strong>
+                                <form action="{% url 'update_status' 'kiloan' item.id %}" method="POST" style="display:inline; margin-left: 10px;">
+                                    {% csrf_token %}
+                                    <button type="submit" name="ubah_cucian" style="padding: 2px 8px; cursor: pointer; background: #e2e8f0; border: none; border-radius: 4px;">Ubah</button>
+                                </form>
+                            </td>
+                            <td>
+                                <strong style="color: {% if item.status_pembayaran == 'Lunas' %}green{% else %}red{% endif %};">{{ item.status_pembayaran }}</strong>
+                                <form action="{% url 'update_status' 'kiloan' item.id %}" method="POST" style="display:inline; margin-left: 10px;">
+                                    {% csrf_token %}
+                                    <button type="submit" name="ubah_bayar" style="padding: 2px 8px; cursor: pointer; background: #e2e8f0; border: none; border-radius: 4px;">Ubah</button>
+                                </form>
+                            </td>
                         </tr>
                         {% empty %}
                         <tr><td colspan="3" class="text-center">Belum ada pesanan kiloan.</td></tr>
@@ -99,6 +127,8 @@
                             <th>Barang</th>
                             <th>Jumlah</th>
                             <th>Total Harga</th>
+                            <th>Status Cucian</th>
+                            <th>Status Pembayaran</th>
                         </tr>
                         {% for item in satuan %}
                         <tr>
@@ -106,9 +136,23 @@
                             <td>{{ item.nama_barang }}</td>
                             <td>{{ item.jumlah }} pcs</td>
                             <td class="harga">Rp {{ item.hitung_total_harga }}</td>
+                            <td>
+                                <strong style="color: {% if item.status_cucian == 'Selesai' %}green{% else %}orange{% endif %};">{{ item.status_cucian }}</strong>
+                                <form action="{% url 'update_status' 'satuan' item.id %}" method="POST" style="display:inline; margin-left: 10px;">
+                                    {% csrf_token %}
+                                    <button type="submit" name="ubah_cucian" style="padding: 2px 8px; cursor: pointer; background: #e2e8f0; border: none; border-radius: 4px;">Ubah</button>
+                                </form>
+                            </td>
+                            <td>
+                                <strong style="color: {% if item.status_pembayaran == 'Lunas' %}green{% else %}red{% endif %};">{{ item.status_pembayaran }}</strong>
+                                <form action="{% url 'update_status' 'satuan' item.id %}" method="POST" style="display:inline; margin-left: 10px;">
+                                    {% csrf_token %}
+                                    <button type="submit" name="ubah_bayar" style="padding: 2px 8px; cursor: pointer; background: #e2e8f0; border: none; border-radius: 4px;">Ubah</button>
+                                </form>
+                            </td>
                         </tr>
                         {% empty %}
-                        <tr><td colspan="4" class="text-center">Belum ada pesanan satuan.</td></tr>
+                        <tr><td colspan="6" class="text-center">Belum ada pesanan satuan.</td></tr>
                         {% endfor %}
                     </table>
                 </div>

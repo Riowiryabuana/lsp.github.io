@@ -2,15 +2,17 @@ from django.db import models
 
 # 1. INTERFACE
 class KalkulasiLayanan:
-    """ Interface untuk standarisasi kalkulasi layanan (Syarat 3h) """
     def hitung_total_harga(self):
         raise NotImplementedError("Subclass harus mengimplementasikan metode ini!")
 
 # 2. SUPERCLASS
 class PesananUtama(models.Model, KalkulasiLayanan):
-    """ Superclass entitas pesanan dengan Eksternal Library ORM Django (Syarat 3j & 3k) """
     nama_pelanggan = models.CharField(max_length=100)
     tanggal_masuk = models.DateTimeField(auto_now_add=True)
+    alamat = models.TextField(default="-")
+    no_hp = models.CharField(max_length=15, default="-")
+    status_pembayaran = models.CharField(max_length=20, default="Belum Lunas")
+    status_cucian = models.CharField(max_length=20, default="Proses")
     
     # ENCAPSULATION
     _biaya_tambahan = models.FloatField(default=0.0)
