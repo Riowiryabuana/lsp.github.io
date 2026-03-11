@@ -6,4 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.manajemen_kasir, name='manajemen_kasir'), 
     path('update-status/<str:tipe>/<int:id>/', views.update_status, name='update_status'),
+    path('hapus-pesanan/<str:tipe>/<int:id>/', views.hapus_pesanan, name='hapus_pesanan'),
 ]

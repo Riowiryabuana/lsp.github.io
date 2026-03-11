@@ -80,3 +80,49 @@ Pelanggan: rio1 | Total Bayar: Rp98000.0
 Pelanggan: rio | Total Bayar: Rp60000.0
 Pelanggan: rio2 | Total Bayar: Rp165000.0
 ==================================
+
+=== STRUK CLEAN DONG LAUNDRY ===
+Pelanggan: rio1 | Total Bayar: Rp98000.0
+Pelanggan: rio | Total Bayar: Rp60000.0
+Pelanggan: rio2 | Total Bayar: Rp165000.0
+==================================
+
+=== STRUK CLEAN DONG LAUNDRY ===
+Pelanggan: rio1 | Total Bayar: Rp98000.0
+Pelanggan: rio | Total Bayar: Rp60000.0
+Pelanggan: rio2 | Total Bayar: Rp165000.0
+==================================
+
+=== STRUK CLEAN DONG LAUNDRY ===
+Pelanggan: rio | Total Bayar: Rp60000.0
+Pelanggan: rio2 | Total Bayar: Rp165000.0
+==================================
+
+=== STRUK CLEAN DONG LAUNDRY ===
+Pelanggan: rio | Total Bayar: Rp170000.0
+Pelanggan: rio | Total Bayar: Rp60000.0
+Pelanggan: rio2 | Total Bayar: Rp165000.0
+==================================
+
+=== STRUK CLEAN DONG LAUNDRY ===
+Pelanggan: rio | Total Bayar: Rp170000.0
+Pelanggan: rio | Total Bayar: Rp60000.0
+Pelanggan: rio2 | Total Bayar: Rp165000.0
+==================================
+
+=== STRUK CLEAN DONG LAUNDRY ===
+Pelanggan: rio | Total Bayar: Rp170000.0
+Pelanggan: rio | Total Bayar: Rp60000.0
+Pelanggan: rio2 | Total Bayar: Rp165000.0
+==================================
+
+=== STRUK CLEAN DONG LAUNDRY ===
+Pelanggan: rio | Total Bayar: Rp170000.0
+Pelanggan: rio | Total Bayar: Rp60000.0
+Pelanggan: rio2 | Total Bayar: Rp165000.0
+==================================
+
+=== STRUK CLEAN DONG LAUNDRY ===
+Pelanggan: rio | Total Bayar: Rp170000.0
+Pelanggan: rio | Total Bayar: Rp60000.0
+==================================

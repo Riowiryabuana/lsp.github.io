@@ -65,3 +65,14 @@ def update_status(request, tipe, id):
         obj.save()
         
     return redirect('manajemen_kasir')
+
+# Fungsi khusus untuk menghapus data pesanan
+def hapus_pesanan(request, tipe, id):
+    if request.method == "POST":
+        if tipe == "kiloan":
+            obj = get_object_or_404(CuciKiloan, id=id)
+        else:
+            obj = get_object_or_404(CuciSatuan, id=id)
+        obj.delete()
+        
+    return redirect('manajemen_kasir')

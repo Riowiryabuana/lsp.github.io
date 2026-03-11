@@ -94,6 +94,7 @@
                             <th>Total Harga</th>
                             <th>Status Cucian</th>
                             <th>Status Pembayaran</th>
+                            <th>Aksi</th>
                         </tr>
                         {% for item in kiloan %}
                         <tr>
@@ -114,9 +115,15 @@
                                     <button type="submit" name="ubah_bayar" style="padding: 2px 8px; cursor: pointer; background: #e2e8f0; border: none; border-radius: 4px;">Ubah</button>
                                 </form>
                             </td>
+                            <td>
+                                <form action="{% url 'hapus_pesanan' 'kiloan' item.id %}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus pesanan atas nama {{ item.nama_pelanggan }}?');">
+                                    {% csrf_token %}
+                                    <button type="submit" style="padding: 4px 10px; cursor: pointer; background: #ef4444; color: white; border: none; border-radius: 4px; font-weight: bold;">Hapus</button>
+                                </form>
+                            </td>
                         </tr>
                         {% empty %}
-                        <tr><td colspan="3" class="text-center">Belum ada pesanan kiloan.</td></tr>
+                        <tr><td colspan="6" class="text-center">Belum ada pesanan kiloan.</td></tr>
                         {% endfor %}
                     </table>
 
@@ -129,6 +136,7 @@
                             <th>Total Harga</th>
                             <th>Status Cucian</th>
                             <th>Status Pembayaran</th>
+                            <th>Aksi</th>
                         </tr>
                         {% for item in satuan %}
                         <tr>
@@ -148,6 +156,12 @@
                                 <form action="{% url 'update_status' 'satuan' item.id %}" method="POST" style="display:inline; margin-left: 10px;">
                                     {% csrf_token %}
                                     <button type="submit" name="ubah_bayar" style="padding: 2px 8px; cursor: pointer; background: #e2e8f0; border: none; border-radius: 4px;">Ubah</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{% url 'hapus_pesanan' 'satuan' item.id %}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus pesanan atas nama {{ item.nama_pelanggan }}?');">
+                                    {% csrf_token %}
+                                    <button type="submit" style="padding: 4px 10px; cursor: pointer; background: #ef4444; color: white; border: none; border-radius: 4px; font-weight: bold;">Hapus</button>
                                 </form>
                             </td>
                         </tr>
